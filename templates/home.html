@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <div class="jumbotron text-center bg-secondary text-white hero">
+        <h1 class="display-3">Welcome to Poem Reviews!</h1>
+        <p class=" lead">Here, I post weekly reviews of poems.</p>       
+      </div>
+      <div class="container">
+        <form action="{% url 'home' %}" method="GET">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Look Up Poets</span>
+            <input type="text" name="qp" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </form>
+        <p class=" lead">{{ count }} poems so far!</p>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+            {% for poem in poems %}
+          <div class="col m-2">
+            <div class="card border border-dark-subtle" style="width: 18rem;">
+              <div class="card-header">
+                <h5 class="card-title">{{ poem.title }}</h5>
+                {% if poem.image %}
+                  <img src="{{ poem.image.url }}" width="50px" alt="{{poem.image}}">
+                {% endif %}
+                <br>
+                <br>
+                <h6 class="card-subtitle mb-2 text-muted">{{ poem.author }} | {{ poem.category }}</h6>   
+              </div>
+              <div class="card-body">
+                <p class="card-text">{{ poem.excerpt | safe }}</p>
+              </div>
+                <div class="card-footer">
+                  <div class="row justify-content-around">
+                  <a href="{{ poem.get_absolute_url }}" class="card-link btn btn-dark">Full Text</a>
+                  <small class=" text-muted">{{ poem.created_at }}</small>
+                </div>
+                </div> 
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endblock content %}
