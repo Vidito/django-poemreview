@@ -14,7 +14,7 @@
             <input type="text" name="qp" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
           </div>
         </form>
-        <p class=" lead">{{ count }} poems so far!</p>
+        <p class=" lead">{{ count }} poem{{ count | pluralize }} so far!</p>
       </div>
       
       <div class="container">
@@ -45,4 +45,5 @@
           {% endfor %}
         </div>
       </div>
+
       {% endblock content %}

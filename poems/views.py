@@ -3,6 +3,8 @@ from .models import Poem
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 # Create your views here.
+
+
 def home(request):
     poems = Poem.objects.all().order_by('-id')
     if request.GET.get('qp', None):

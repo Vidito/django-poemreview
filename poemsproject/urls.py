@@ -11,5 +11,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('poems/<int:id>', views.poem_detail, name='poem_detail'),
     path('summernote/', include('django_summernote.urls')),
+    path('accounts/', include('accounts.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
