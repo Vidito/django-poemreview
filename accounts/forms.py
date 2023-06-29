@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class AccountUpdateForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -10,4 +10,12 @@ class AccountUpdateForm(UserCreationForm):
                 'class': 'form-control'
             })
 
-        
+
+class LoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username', 'password']:
+            self.fields[fieldname].widget.attrs.update({
+                'class': 'form-control'
+            })

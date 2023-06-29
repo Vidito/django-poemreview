@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="card">
+    <div class="row">
+        <div class=" m-auto">
+            <div class="card-body">
+                <h3 class="card-title">
+                    Log in
+                </h3>
+                {% if error %}
+                    <h6 class="alert alert-danger mt-5">{{ error }}</h6>
+                {% endif %}
+                <p class="card-text">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-primary" type="submit">Log in</button>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

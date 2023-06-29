@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-<img src="{% static 'images/face3.jpg' %}" alt="">
-        <h1>About Page here...</h1>
+        <div class="jumbotron text-center bg-secondary text-white hero">
+                <h1 class="display-3">Welcome to Poem Reviews!</h1>
+                <p class=" lead">Here, I post weekly reviews of poems.</p>       
+        </div>
+        <h1>Review the poems which are posted here....</h1>
+        <h3>Violation of the following rules leads to deletion of your account</h3>
+        <ul>
+                <li>Respect Others</li>
+                <li>Do Not Use Profanity</li>
+                <li>Do not Disclose Any Personal Information About Yourself/Others</li>
+                <li>Only Write With Regrads To The Poem Published</li>
+        </ul>
 {% endblock content %} 
