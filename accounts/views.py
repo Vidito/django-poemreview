@@ -4,6 +4,8 @@ from .forms import AccountUpdateForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -23,6 +25,8 @@ def signupaccount(request):
             return render(request, 'signup.html', {'form': AccountUpdateForm, 'error': 'Passwords do not match'})
         
 
+
+@login_required
 def logoutaccount(request): 
     logout(request)
     return redirect('home')
