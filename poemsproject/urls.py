@@ -9,7 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('poems/<int:id>', views.poem_detail, name='poem_detail'),
+    path('poems/', include('poems.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('accounts.urls')),
 
