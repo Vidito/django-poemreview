@@ -42,9 +42,13 @@
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-center">
         <p class="col-md-4 m-0 text-muted  text-center">&copy; 2022 Company</p>
     
-        <ul class="nav col-md-4 justify-content-center m-0">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <ul class="d-flex flex-wraptext-center">
+          {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'logoutaccount' %}"">Logout ({{ user.username }})</a>
+          {% else %}
+          <a class="nav-link" href="{% url 'loginaccount' %}">Login</a>
+          <a class="nav-link" href="{% url 'signupaccount' %}">Sign Up</a>
+          {% endif %}
         </ul>
       </footer>
     </div>
